@@ -5,10 +5,18 @@ kcfnbApp.config(function($sceProvider) {
   $sceProvider.enabled(false);
 });
 //app controller
-kcfnbApp.controller('DateCtrl', function($scope){
+kcfnbApp.controller('HeaderCtrl', function($scope){
 	var controller = this;
-  $scope.nextDateDowntown; //next friday
-  $scope.nextDateNortheast; //next sunday
+  var td = new Date();
+  var nextFriday = new Date(td.getFullYear(),td.getMonth(),td.getDate()+(5-td.getDay()));
+  var nextSunday = new Date(td.getFullYear(),td.getMonth(),td.getDate()+(7-td.getDay()));
+  var months = ["Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"];
+  $scope.nextDateDowntown = months[nextFriday.getMonth()] + ' ' +  nextFriday.getDate() + ' ' + nextFriday.getFullYear();
+  $scope.nextDateNortheast = months[nextSunday.getMonth()] + ' ' + nextSunday.getDate() + ' ' + nextSunday.getFullYear();;
+  $scope.isInit = true;
   // old php code
   // $nextDate = date('M d, Y',strtotime( "next sunday" )); //yes, it's really that easy
   // $nextDateDowntown = date('M d, Y',strtotime( "next friday" ));
@@ -21,19 +29,19 @@ kcfnbApp.controller('ContactCtrl', function($http, $scope){
   $scope.formData = {
     name: '',
     email: '',
-    phone: '',
-    comments: ''
+    location: 'Any',
+    message: ''
   };
   $scope.submitForm = function(){
     $scope.formEnabled = false;
     if(!$scope.formData.name ||
        !$scope.formData.email ||
-       !$scope.formData.comments){
+       !$scope.formData.message){
       $scope.formEnabled = true;
       return;
     }
     var thePost = {
-      url : '', //set up a zap and put URL here
+      url : 'https://hooks.zapier.com/hooks/catch/2516557/8r7att/', //set up a zap and put URL here
       method: 'POST',
       data: $scope.formData,
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}

@@ -1,21 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+  ng-app="kcfnbApp">
 <head>
   <meta charset="utf-8">
   <title>KC Food Not Bombs</title>
   <meta name="description" content="We offer free, hot, vegan friendly meals, groceries, literature, and household items to anyone in need.">
   <meta name="author" content="Bob Palmer">
   <meta name="keywords" content="Food Not Bombs Kansas City Free Food Free Store Free Skool Free School Comida No Bombas">
-  <link rel="icon" type="image/png" href="/kcfnb-icon.png">
+  <meta property="og:title" content="I'm Bob"/>
+  <meta property="og:type" content="person"/>
+  <meta property="og:url" content="http://www.kcfnb.org"/>
+  <meta property="og:image" content="img/banner.png"/>
+  <meta property="og:site_name" content="Kansas City Food Not Bombs"/>
+  <meta property="og:description"
+        content="We offer free, hot, vegan friendly meals, groceries, literature, and household items to anyone in need."/>
+  <link rel="icon" type="image/png" href="img/kcfnb-icon.png">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 </head>
 <body>
   <div id="Container">
-  <div id="Header">
+  <div id="Header" ng-controller="HeaderCtrl">
     <img id="Banner" src="img/banner.png" alt="Kansas City Food Not Bombs">
     <h1>Kansas City Food Not Bombs</h1>
-    <h2>Next Serving Downtown KC: {{nextDateDowntown}}</h2>
-    <h2>Next Serving Northeast KC: {{nextDateNortheast}}</h2>
+    <h2 ng-show="nextDateDowntown">Next Serving Downtown KC: {{nextDateDowntown}}</h2>
+    <h2 ng-hide="nextDateDowntown">Serving Downtown KC Every Friday</h2>
+    <h2 ng-show="nextDateNortheast">Next Serving Northeast KC: {{nextDateNortheast}}</h2>
+    <h2 ng-hide="nextDateNortheast">Serving Northeast KC Every Sunday</h2>    
+
     <ul id="main-nav">
       <li><a href="#About">About Us</a></li>
       <li><a href="#Donation">Donations</a></li>
@@ -93,23 +107,27 @@
       </div>
     </div>
   </div>
-  <div id="Contact">
+  <div id="Contact" ng-controller="ContactCtrl" ng-show="formData">
     <h2>Contact</h2>
     <a href="https://www.facebook.com/kcfnb/">Find us on Facebook</a>
-    <form action="/contactengine.php" method="post">
-      <input name="Time" id="Time" type="hidden">
-      <div id="ContactForm">
-      <p><label for="Name">Name:</label>&nbsp&nbsp&nbsp<input class="submissionfield" name="Name" id="Name" type="text"required=required></p>
-      <p><label for="Email">Email:</label>&nbsp&nbsp&nbsp<input class="submissionfield" name="Email" id="Email" type="Email" required=required></p>
-      <p><label for="Location">Location:</label>&nbsp&nbsp&nbsp<select class="submissionfield" name="Location" id="Location" required=required><option value="Any">Any</option><option value="Downtown">Downtown</option><option value="Northeast">Northeast</option></select></p>
-      <p><!--<label for="Subject">Subject:</label>--><input name="Subject" id="Subject" type="hidden" value="KC Food Not Bombs Website Comment" required=required></p>
-      <p><label for="Mesage">Message:</label><textarea class="submissionfield" name="Message" id="Message" rows="6" cols="50" required=required></textarea></p>
-      </div>
-      <!-- <div class="g-recaptcha" data-sitekey="6LeI5x8UAAAAADsvLo9-hdBGA_q81mJSx7VJDiTw"></div> -->
-      <br />
-      <br />
-      <button type="submit"><img src="img/send_message.png" alt="Send us a message!"/></button>
-    </form>
+    <div id="ContactForm" ng-hide="formSubmitted" >
+      <form ng-submit="submitForm()">
+        <input name="Time" id="Time" type="hidden">
+          <p><label for="Name">Name:</label>&nbsp&nbsp&nbsp<input class="submissionfield" name="Name" id="Name" ng-model="formData.name" placeholder="Name" required type="text"></p>
+          <p><label for="Email">Email:</label>&nbsp&nbsp&nbsp<input class="submissionfield" id="Email" name="Email" ng-model="formData.email" placeholder="Email" required type="Email"></p>
+          <p><label for="Location">Location:</label>&nbsp&nbsp&nbsp<select class="submissionfield" name="Location" id="Location" ng-model="formData.location" required><option value="Any">Any</option><option value="Downtown">Downtown</option><option value="Northeast">Northeast</option></select></p>
+          <p><label for="Message">Message:</label><textarea class="submissionfield" name="Message" id="Message" ng-model="formData.message" rows="6" cols="50" required=required></textarea></p>
+        <!-- <div class="g-recaptcha" data-sitekey="6LeI5x8UAAAAADsvLo9-hdBGA_q81mJSx7VJDiTw"></div> -->
+        <br />
+        <br />
+        <!-- <input type="submit" value="Submit" ng-disabled="!formEnabled"> -->
+        <button type="submit" ng-disabled="!formEnabled" ng-click="submitForm()"><img src="img/send_message.png" alt="Send us a message!"/></button>
+      </form>
+    </div>
+    <div ng-show="formSubmitted">
+      <h2>Thank You</h2>
+      <p>Your message has been sent!</p>
+    </div>
   </div>
   <div id="Footer">
   Go be excellent to each other.
@@ -126,7 +144,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
   <!-- Custom scripts for this template -->
-  <script src="js/stylish-portfolio.js"></script>
+  <script src="js/kcfnb.js"></script>
 
 </body>
 </html>
