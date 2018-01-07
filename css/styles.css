@@ -110,6 +110,14 @@ p {
   background-color: #FFFFFF;
 }
 
+#Literature div{
+	max-height: 70vh;
+	overflow-y: scroll;
+}
+#Literature div ul{
+	list-style-type:none;
+}
+
 #Donation{
 
 }

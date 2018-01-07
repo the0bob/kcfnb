@@ -66,9 +66,13 @@
     <h2>Photos</h2>
     <iframe id="photo-frame" src="https://embedsocial.com/facebook_album/album_photos/1190147131072849" width="776" height="1100" frameborder="0" scrolling="no" marginheight="-20" marginwidth="0"></iframe>
   </div>
-  <div id="Literature">
+  <div id="Literature" ng-controller="ZineCtrl" ng-show="zines">
     <h2>Literature</h2>
-    <iframe id="lit-frame" src="zines/" width="776" height="560" frameborder="0" scrolling="yes" marginheight="-20" marginwidth="0"></iframe>
+    <div>
+      <ul ng-repeat="zine in zines">
+        <li><a ng-href="zines/{{zine}}">{{zine}}</a></li>
+      </ul>
+    </div>
   </div>
   <div id="Maps">
     <h2>Locations</h2>
