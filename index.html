@@ -28,7 +28,7 @@
     <h2 ng-show="nextDateDowntown">Next Serving Downtown KC: {{nextDateDowntown}}</h2>
     <h2 ng-hide="nextDateDowntown">Serving Downtown KC Every Friday</h2>
     <h2 ng-show="nextDateNortheast">Next Serving Northeast KC: {{nextDateNortheast}}</h2>
-    <h2 ng-hide="nextDateNortheast">Serving Northeast KC Every Sunday</h2>    
+    <h2 ng-hide="nextDateNortheast">Serving Northeast KC Every Sunday</h2>
 
     <ul id="main-nav">
       <li><a href="#About">About Us</a></li>
@@ -118,7 +118,6 @@
           <p><label for="Location">Location:</label>&nbsp&nbsp&nbsp<select class="submissionfield" name="Location" id="Location" ng-model="formData.location" required><option value="Any">Any</option><option value="Downtown">Downtown</option><option value="Northeast">Northeast</option></select></p>
           <p><label for="Message">Message:</label><textarea class="submissionfield" name="Message" id="Message" ng-model="formData.message" rows="6" cols="50" required=required></textarea></p>
         <!-- <div class="g-recaptcha" data-sitekey="6LeI5x8UAAAAADsvLo9-hdBGA_q81mJSx7VJDiTw"></div> -->
-        <br />
         <br />
         <!-- <input type="submit" value="Submit" ng-disabled="!formEnabled"> -->
         <button type="submit" ng-disabled="!formEnabled" ng-click="submitForm()"><img src="img/send_message.png" alt="Send us a message!"/></button>
