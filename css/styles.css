@@ -1,0 +1,149 @@
+body {
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	background-color: #FFFFFF;
+	font-size: x-large;
+  font-family: FF-National, Helvitica, Arial, sans-serif;
+}
+
+.body-fix{
+  margin-top: 1em;
+}
+#Container {
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	display: block;
+	margin: auto;
+	text-align: center;
+	width: 100%;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+#Header, #About, #Donation, #Photos, #Literature, #Maps, #Contact, #Footer {
+	min-width: 50%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
+  padding-top: 1em;
+	padding-bottom: 12px;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 4px;
+}
+#Header{
+  width: 800px;
+}
+#About, #Donation, #Photos, #Literature, #Maps, #Contact, #Footer {
+  width: 776px;
+}
+.Table {
+	display: table;
+}
+.Table-Row {
+	display: table-row;
+}
+.Table-Cell{
+	display: table-cell;
+
+}
+#ServingLocationMap p, #PrepLocationMap p,#DowntownServingLocationMap p, #DowntownPrepLocationMap p{
+	text-align: center;
+}
+#ServingLocationMap, #DowntownServingLocationMap{
+	border-right-width: 2px;
+	border-right-style: dashed;
+}
+#PrepLocationMap, #DowntownPrepLocationMap{
+	border-left-width: 2px;
+	border-left-style: dashed;
+}
+#ContactForm{
+
+}
+
+#photo-frame {
+	width: 100%;
+}
+
+#donation-button {
+	width: 100%;
+}
+
+p {
+	text-align: justify;
+}
+
+#Header {
+}
+
+#Banner {
+	display: inline;
+	border-style: double;
+	border-width: 4px;
+	border-color: black;
+	border-radius: 8px;
+	width: 100%;
+}
+
+#main-nav {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+#main-nav > li{
+  display: inline;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.main-nav-fix{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  margin-top: 0;
+  background-color: #FFFFFF;
+}
+
+#Donation{
+
+}
+
+#DonationForm {
+	text-align: center;
+	width: 100%;
+}
+
+#Maps {
+
+}
+
+#ServingLocationMap{
+
+}
+
+#PrepLocationMap{
+
+}
+
+#Contact{
+
+}
+
+#Footer{
+  margin-top: 1em;
+  font-size: medium;
+  border-bottom:none;
+}
+
+.submissionfield {
+	font-size: 2em;
+	border: 1px solid #999999;
+	padding: 5px;
+	max-width: 776px
+	}
