@@ -9,9 +9,9 @@
   <meta name="description" content="We offer free, hot, vegan friendly meals, groceries, literature, and household items to anyone in need.">
   <meta name="author" content="Bob Palmer">
   <meta name="keywords" content="Food Not Bombs Kansas City Free Food Free Store Free Skool Free School Comida No Bombas">
-  <meta property="og:title" content="I'm Bob"/>
-  <meta property="og:type" content="person"/>
-  <meta property="og:url" content="http://www.kcfnb.org"/>
+  <meta property="og:title" content="Kansas City Food Not Bombs"/>
+  <meta property="og:type" content="organization"/>
+  <meta property="og:url" content="https://www.kcfnb.org"/>
   <meta property="og:image" content="img/banner.png"/>
   <meta property="og:site_name" content="Kansas City Food Not Bombs"/>
   <meta property="og:description"
@@ -25,11 +25,8 @@
   <div id="Header" ng-controller="HeaderCtrl">
     <img id="Banner" src="img/banner.png" alt="Kansas City Food Not Bombs">
     <h1>Kansas City Food Not Bombs</h1>
-    <h2 ng-show="nextDateDowntown">Next Serving Downtown KC: {{nextDateDowntown}}</h2>
-    <h2 ng-hide="nextDateDowntown">Serving Downtown KC Every Friday</h2>
     <h2 ng-show="nextDateNortheast">Next Serving Northeast KC: {{nextDateNortheast}}</h2>
     <h2 ng-hide="nextDateNortheast">Serving Northeast KC Every Sunday</h2>
-
     <ul id="main-nav">
       <li><a href="#About">About Us</a></li>
       <li><a href="#Donation">Donations</a></li>
@@ -38,7 +35,6 @@
       <li><a href="#Maps">Locations</a></li>
       <li><a href="#Contact">Contact Us</a></li>
     </ul>
-    <!--<nav><a href="#About">About Us</a> | <a href="#Donation">Donations</a> | <a href="#Photos">Photos</a> | <a href="#Maps">Locations</a> | <a href="#Contact">Contact Us</a></nav>-->
   </div>
   <div id="About">
     <h2>About Us</h2>
@@ -93,23 +89,6 @@
         </div>
       </div>
     </div>
-    <p>We <strong>prepare</strong> and <strong>serve</strong> meals in <strong>Downtown Kansas City</strong> every <strong>Friday</strong>.</p>
-    <div class="table">
-      <div class="Table-Row">
-        <div class="Table-Cell" id="DowntownServingLocationMap">
-          <h3>Serving Location</h3>
-          <iframe width="380" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=E+9th+St+%26+Harrison+St,+Kansas+City,+MO+64106&key=AIzaSyAGkf-n4v305so_iSfUD69rqniT9JnscpQ" allowfullscreen></iframe>
-          <p>9th and Harrison St, Kansas City, MO 66108</p>
-          <p>3:00 PM - 4:00 PM</p>
-        </div>
-        <div class="Table-Cell" id="DowntownPrepLocationMap">
-          <h3>Prep Location</h3>
-          <iframe width="380" height="400" frameborder="0" style="border:0" src="" allowfullscreen></iframe>
-          <p>Contact Us for Location</p>
-          <p>12:00 PM - 2:30 PM</p>
-        </div>
-      </div>
-    </div>
   </div>
   <div id="Contact" ng-controller="ContactCtrl" ng-show="formData">
     <h2>Contact</h2>
@@ -119,11 +98,8 @@
         <input name="Time" id="Time" type="hidden">
           <p><label for="Name">Name:</label>&nbsp&nbsp&nbsp<input class="submissionfield" name="Name" id="Name" ng-model="formData.name" placeholder="Name" required type="text"></p>
           <p><label for="Email">Email:</label>&nbsp&nbsp&nbsp<input class="submissionfield" id="Email" name="Email" ng-model="formData.email" placeholder="Email" required type="Email"></p>
-          <p><label for="Location">Location:</label>&nbsp&nbsp&nbsp<select class="submissionfield" name="Location" id="Location" ng-model="formData.location" required><option value="Any">Any</option><option value="Downtown">Downtown</option><option value="Northeast">Northeast</option></select></p>
           <p><label for="Message">Message:</label><textarea class="submissionfield" name="Message" id="Message" ng-model="formData.message" rows="6" cols="50" required=required></textarea></p>
-        <!-- <div class="g-recaptcha" data-sitekey="6LeI5x8UAAAAADsvLo9-hdBGA_q81mJSx7VJDiTw"></div> -->
         <br />
-        <!-- <input type="submit" value="Submit" ng-disabled="!formEnabled"> -->
         <button type="submit" ng-disabled="!formEnabled" ng-click="submitForm()"><img src="img/send_message.png" alt="Send us a message!"/></button>
       </form>
     </div>
@@ -138,11 +114,9 @@
   </div>
 
   <!-- Scripts -->
-  <!-- Recaptcha -->
-  <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Angular 1.6.4 -->
+  <!-- Angular 1.4.8 -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
