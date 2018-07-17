@@ -25,8 +25,8 @@
   <div id="Header" ng-controller="HeaderCtrl">
     <img id="Banner" src="img/banner.png" alt="Kansas City Food Not Bombs">
     <h1>Kansas City Food Not Bombs</h1>
-    <h2 ng-show="nextDateNortheast">Next Serving Northeast KC: {{nextDateNortheast}}</h2>
     <h2 ng-hide="nextDateNortheast">Serving Northeast KC Every Sunday</h2>
+    <h3 ng-show="nextDateNortheast" ng-bind="nextDateNortheast"></h2>
     <ul id="main-nav">
       <li><a href="#About">About Us</a></li>
       <li><a href="#Donation">Donations</a></li>

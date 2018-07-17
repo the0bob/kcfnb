@@ -10,16 +10,12 @@ kcfnbApp.controller('HeaderCtrl', function($scope){
   var td = new Date();
   var nextFriday = new Date(td.getFullYear(),td.getMonth(),td.getDate()+(5-td.getDay()));
   var nextSunday = new Date(td.getFullYear(),td.getMonth(),td.getDate()+(7-td.getDay()));
-  var months = ["Jan", "Feb", "Mar",
-    "Apr", "May", "Jun", "Jul",
-    "Aug", "Sep", "Oct",
-    "Nov", "Dec"];
-  $scope.nextDateDowntown = months[nextFriday.getMonth()] + ' ' +  nextFriday.getDate() + ' ' + nextFriday.getFullYear();
-  $scope.nextDateNortheast = months[nextSunday.getMonth()] + ' ' + nextSunday.getDate() + ' ' + nextSunday.getFullYear();;
+  var months = ["January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"];
+  $scope.nextDateNortheast = 'Next Serving: ' + months[nextSunday.getMonth()] + ' ' + nextSunday.getDate() + ', ' + nextSunday.getFullYear();;
   $scope.isInit = true;
-  // old php code
-  // $nextDate = date('M d, Y',strtotime( "next sunday" )); //yes, it's really that easy
-  // $nextDateDowntown = date('M d, Y',strtotime( "next friday" ));
 });
 kcfnbApp.controller('ZineCtrl', function($scope){
 	var controller = this;
